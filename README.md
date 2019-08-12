@@ -2,7 +2,11 @@
 
 Runs `scalafmt --list` on your repository automatically with every push.
 
-Uses [scalafmt-native](https://github.com/mroth/scalafmt-native) under the hood to keep things small and booting super quick by avoiding the JVM.
+Uses [scalafmt-native](https://github.com/mroth/scalafmt-native) under the hood to keep things small and booting super quick by avoiding the JVM. :racehorse:
+
+## :warning: Note 
+
+This currently uses the beta version of GitHub Actions, and will need to be updated to reflect the upcoming release version _(just as soon we are given access to it!)_. 
 
 ## Usage
 

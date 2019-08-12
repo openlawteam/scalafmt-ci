@@ -1,4 +1,4 @@
-FROM mrothy/scalafmt-native
+FROM mrothy/scalafmt-native:2.0.1
 
 LABEL "com.github.actions.name"="Scalafmt"
 LABEL "com.github.actions.description"="Lint code formatting with scalafmt"

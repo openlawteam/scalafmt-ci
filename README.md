@@ -1,6 +1,6 @@
 # Scalafmt GitHub Action
 
-Runs `scalafmt --test` on your repository automatically with every push.
+Runs `scalafmt --list` on your repository automatically with every push.
 
 Uses [scalafmt-native](https://github.com/mroth/scalafmt-native) under the hood to keep things small and booting super quick by avoiding the JVM.
 

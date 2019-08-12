@@ -9,6 +9,6 @@ LABEL "repository"="https://github.com/openlawteam/scalafmt-ci"
 LABEL "homepage"="https://github.com/openlawteam/scalafmt-ci"
 LABEL "maintainer"="Matthew Rothenberg <mroth@openlaw.io>"
 
-ENTRYPOINT ["/app/scalafmt", "--non-interactive", "--test"]
+ENTRYPOINT ["/app/scalafmt", "--non-interactive", "--list"]
 # by default, github actions will set WORKDIR to $GITHUB_WORKSPACE 
 # (/github/workspace), so no need to set CMD here

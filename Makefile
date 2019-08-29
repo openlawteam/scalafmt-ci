@@ -1,23 +1,25 @@
-IMAGE = openlaw/scalafmt-ci
-WORKDIR = /github/workspace
-TESTDATA = .github/testdata
+IMAGE := openlaw/scalafmt-ci
+# DEFAULT_ARGS := --list
+WORKDIR := /github/workspace
+TESTDATA := .github/testdata
 
-.PHONY: image test testfail testdata clean
+.PHONY: test testfail testdata clean
 
 image:
 	docker build -t $(IMAGE) .
 
 test:
 	docker run --rm -it \
-		-v "$$(pwd)/.github/testdata":$(WORKDIR) \
 		-w=$(WORKDIR) \
-		$(IMAGE) --exclude Bad.scala
+		-v "$$(pwd)/.github/testdata":$(WORKDIR) \
+		$(IMAGE) --list --exclude Bad.scala
 
-testfail: ## expected failure, to see output
+# expected failure, to see output
+testfail: 
 	docker run --rm -it \
-		-v "$$(pwd)/.github/testdata":$(WORKDIR) \
 		-w=$(WORKDIR) \
-		$(IMAGE)
+		-v "$$(pwd)/.github/testdata":$(WORKDIR) \
+		$(IMAGE) --list
 
 # generate the "good" version of the sample file
 $(TESTDATA)/Good.scala: $(TESTDATA)/Bad.scala $(TESTDATA)/.scalafmt.conf

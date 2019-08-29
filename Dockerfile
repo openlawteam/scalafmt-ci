@@ -1,14 +1,13 @@
-FROM mrothy/scalafmt-native:2.0.1
+# This is essentially just scalafmt-native loaded into an alpine container, so
+# that we have a shell present to expand wildcards etc.
+FROM mrothy/scalafmt-native:2.0.1 as scalafmt-native
 
-LABEL "com.github.actions.name"="Scalafmt"
-LABEL "com.github.actions.description"="Lint code formatting with scalafmt"
-LABEL "com.github.actions.icon"="wind"
-LABEL "com.github.actions.color"="purple"
-
+FROM alpine:latest
 LABEL "repository"="https://github.com/openlawteam/scalafmt-ci"
 LABEL "homepage"="https://github.com/openlawteam/scalafmt-ci"
 LABEL "maintainer"="Matthew Rothenberg <mroth@openlaw.io>"
 
-ENTRYPOINT ["/app/scalafmt", "--non-interactive", "--list"]
-# by default, github actions will set WORKDIR to $GITHUB_WORKSPACE 
-# (/github/workspace), so no need to set CMD here
+COPY --from=scalafmt-native /app/scalafmt /usr/local/bin/scalafmt
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["--list"]

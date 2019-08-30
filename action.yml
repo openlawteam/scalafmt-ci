@@ -1,5 +1,5 @@
-name: "Scalafmt"
-description: "Lint code formatting with scalafmt"
+name: "Scalafmt Action"
+description: "Format Scala code using scalafmt"
 author: "Matthew Rothenberg <mroth@openlaw.io>"
 branding:
   icon: "wind"

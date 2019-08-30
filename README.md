@@ -44,7 +44,7 @@ you will need to pin to a previous version of this action.
 
 ```hcl
 action "lint" {
-  uses="openlawteam/scalafmt-ci@0.1.0"
+  uses="openlawteam/scalafmt-ci@v0"
   # optional additional args
   args="--exclude ./vendor"
 }

@@ -1,0 +1,15 @@
+name: "Scalafmt"
+description: "Lint code formatting with scalafmt"
+author: "Matthew Rothenberg <mroth@openlaw.io>"
+branding:
+  icon: "wind"
+  color: "red"
+inputs:
+  args:
+    description: "Args to pass to scalafmt"
+    default: "--list"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.args }}

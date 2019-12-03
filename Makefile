@@ -11,21 +11,22 @@ image:
 test:
 	docker run --rm -it \
 		-w=$(WORKDIR) \
-		-v "$$(pwd)/.github/testdata":$(WORKDIR) \
+		-v "$$(pwd)/$(TESTDATA)":$(WORKDIR) \
 		$(IMAGE) --list --exclude Bad.scala
 
 # expected failure, to see output
 testfail: 
 	docker run --rm -it \
 		-w=$(WORKDIR) \
-		-v "$$(pwd)/.github/testdata":$(WORKDIR) \
+		-v "$$(pwd)/$(TESTDATA)":$(WORKDIR) \
 		$(IMAGE) --list
 
 # generate the "good" version of the sample file
 $(TESTDATA)/Good.scala: $(TESTDATA)/Bad.scala $(TESTDATA)/.scalafmt.conf
 	docker run --rm -i \
-		mrothy/scalafmt-native \
-			--config $(TESTDATA)/.scalafmt.conf \
+		-v "$$(pwd)/$(TESTDATA)":/conf \
+		mrothy/scalafmt-native:2.2.2 \
+			--config /conf/.scalafmt.conf \
 			--stdin --stdout \
 	< $< > $@
 

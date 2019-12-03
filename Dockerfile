@@ -1,6 +1,6 @@
 # This is essentially just scalafmt-native loaded into an alpine container, so
 # that we have a shell present to expand wildcards etc.
-FROM mrothy/scalafmt-native:2.0.1 as scalafmt-native
+FROM mrothy/scalafmt-native:2.2.2 as scalafmt-native
 
 FROM alpine:latest
 LABEL "repository"="https://github.com/openlawteam/scalafmt-ci"

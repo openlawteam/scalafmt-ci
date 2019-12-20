@@ -35,7 +35,7 @@ jobs:
 
 ### Installing with GitHub Marketplace
 
-https://github.com/marketplace/actions/scalafmt
+https://github.com/marketplace/actions/scalafmt-action
 
 ### (Legacy) HCL Syntax
 

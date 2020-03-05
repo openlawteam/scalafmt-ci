@@ -4,7 +4,7 @@ FROM mrothy/scalafmt:2.3.2 as scalafmt
 
 FROM alpine:latest
 
-COPY --from=scalafmt /app/scalafmt /usr/local/bin/scalafmt
+COPY --from=scalafmt /usr/local/bin/scalafmt /usr/local/bin/scalafmt
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["--list"]

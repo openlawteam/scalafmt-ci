@@ -2,7 +2,7 @@
 # that we have a shell present to expand wildcards etc.
 FROM mrothy/scalafmt:2.3.2 as scalafmt
 
-FROM alpine:latest
+FROM adoptopenjdk:11-jre-openj9
 
 COPY --from=scalafmt /usr/local/bin/scalafmt /usr/local/bin/scalafmt
 COPY entrypoint.sh /entrypoint.sh

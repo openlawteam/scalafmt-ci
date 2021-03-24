@@ -15,7 +15,7 @@ test:
 		$(IMAGE) --list --exclude Bad.scala
 
 # expected failure, to see output
-testfail: 
+testfail:
 	docker run --rm -it \
 		-w=$(WORKDIR) \
 		-v "$$(pwd)/$(TESTDATA)":$(WORKDIR) \

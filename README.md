@@ -2,8 +2,8 @@
 
 Runs `scalafmt --list` on your repository automatically with every push.
 
-Uses [scalafmt-native](https://github.com/mroth/scalafmt-native) under the hood
-to keep things small and booting super quick by avoiding the JVM. :racehorse:
+Uses [scalafmt-native](https://scalameta.org/scalafmt/docs/installation.html#native-image)
+under the hood to keep things small and booting super quick by avoiding the JVM. :racehorse:
 
 ## Usage
 

@@ -8,6 +8,7 @@ inputs:
   args:
     description: "Args to pass to scalafmt"
     default: "--list"
+    required: false
 runs:
   using: "docker"
   image: "Dockerfile"
